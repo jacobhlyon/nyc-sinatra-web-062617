@@ -1,0 +1,15 @@
+<h1> <%=@figure.name%> </h1>
+
+<form method="POST" action="/figures/<%=@figure.id%>">
+
+	<input type="text" name="figure[name]" value="<%=@figure.name%>" id="figure_name"><br />
+
+	<%Landmark.all.each do |landmark| %>
+	<input type="checkbox" name="figure[landmarks][]" id="landmark_<%=landmark.id%>" value="<%=landmark.id%>" <%='checked' if landmark.id == @figure.id %>><%=landmark.name%></input><br />
+	<% end %>
+
+	<input type="text" name="figure[new_landmark]" value="" placeholder="New Landmark Name" id="new_landmark">
+	<!-- <input type="number" name="figure[title_ids]" value="<%=@figure.title_ids%>" id="title_id"> -->
+	<input type="submit" name="submit" value="Edit Figure">
+
+</form>
