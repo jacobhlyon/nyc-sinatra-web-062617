@@ -40,6 +40,7 @@ class FiguresController < ApplicationController
 		redirect '/figures'
 	end
 
+	#FINISHED
 	get '/figures/:id/edit' do
 		@figure = Figure.find(params[:id])
 
